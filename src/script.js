@@ -1,3 +1,5 @@
+/*
+// Remove feature that was build in last task
 let weather = {
   paris: {
     temp: 20,
@@ -38,3 +40,4 @@ if (weather[cityName] !== undefined) {
     `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${cityName}`
   );
 }
+*/
