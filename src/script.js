@@ -1,43 +1,59 @@
-/*
-// Remove feature that was build in last task
-let weather = {
-  paris: {
-    temp: 20,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  'san francisco': {
-    temp: 20.9,
-    humidity: 100,
-  },
-  oslo: {
-    temp: -5,
-    humidity: 240,
-  },
-};
+function formatDate(date) {
+  let dateNumber = date.getDate();
 
-// write your code here
-let cityName = prompt('Enter a city');
-cityName = cityName.toLowerCase();
-if (weather[cityName] !== undefined) {
-  let temperature = weather[cityName].temp;
-  let humidity = weather[cityName].humidity;
-  let celsiusTemperature = Math.round(temperature);
-  let fahrenheitTemperature = Math.round((temperature * 9) / 5 + 32);
+  let days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  let months = [
+    'Jan',
+    'Feb',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
 
-  alert(
-    `It is currently ${celsiusTemperature}°C (${fahrenheitTemperature}°F) in ${cityName} with a humidity ${humidity}% `
-  );
-} else {
-  alert(
-    `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${cityName}`
-  );
+  let currentDay = days[date.getDay()];
+  let currentMonth = months[date.getMonth()];
+  let currentYear = date.getFullYear();
+  let currentHours = date.getHours();
+  if (currentHours < 10) {
+    currentHours = '0${currentHours}';
+  }
+  let currentMinutes = currentTime.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = ` 0${currentMinutes}`;
+  }
+
+  return `${currentDay} ${currentMonth} ${dateNumber}/${currentYear} ${currentHours}:${currentMinutes}`;
 }
+
+let currentTime = new Date();
+let dateListItem = document.querySelector('#date-item');
+
+dateListItem.innerHTML = formatDate(currentTime);
+
+/*
+Challenge 2
+So we basically want to say, every time I type something in city-input it shoul show the text which I typed
 */
+function showCityName(event) {
+  event.preventDefault();
+  let searchCityName = document.querySelector('#search-input');
+  document.querySelector('h1').innerHTML = searchCityName.value;
+}
+
+let searchForm = document.querySelector('.search-form');
+searchForm.addEventListener('submit', showCityName);
