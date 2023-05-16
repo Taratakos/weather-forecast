@@ -56,3 +56,7 @@ li {
 .search-form {
   margin-bottom: 20px;
 }
+
+.float-left {
+  float: left;
+}
