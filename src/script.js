@@ -30,7 +30,7 @@ function formatDate(date) {
   let currentYear = date.getFullYear();
   let currentHours = date.getHours();
   if (currentHours < 10) {
-    currentHours = '0${currentHours}';
+    currentHours = `0${currentHours}`;
   }
   let currentMinutes = currentTime.getMinutes();
   if (currentMinutes < 10) {
